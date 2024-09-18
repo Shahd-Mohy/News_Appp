@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_appp/models/article_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NewsTile extends StatelessWidget {
   const NewsTile({super.key, required this.articleModel});
@@ -11,13 +12,19 @@ class NewsTile extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         ClipRRect(
-            borderRadius: BorderRadius.circular(6),
+          borderRadius: BorderRadius.circular(6),
+          child: GestureDetector(onTap: () {
+  launchUrl(Uri.parse(articleModel.urlAddress));
+},
             child: Image.network(
-              articleModel.image?? "https://th.bing.com/th/id/OIP.7ITF2gx8_a3s4NbnDOpZzAHaHa?rs=1&pid=ImgDetMain",
+              articleModel.image ??
+                  "https://th.bing.com/th/id/OIP.7ITF2gx8_a3s4NbnDOpZzAHaHa?rs=1&pid=ImgDetMain",
               height: 200,
               width: double.infinity,
               fit: BoxFit.cover,
-            )),
+            ),
+          ),
+        ),
         const SizedBox(
           height: 12,
         ),

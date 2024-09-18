@@ -18,9 +18,11 @@ class NewsService {
 
     for (var result in results) {
       ArticleModel articleModel = ArticleModel(
+          urlAddress :result['url'],
           image: result['urlToImage'],
           title: result['title'],
-          subTitle: result['description']);
+          subTitle: result['description'],
+          );
       articlesList.add(articleModel);
     }
     return articlesList;

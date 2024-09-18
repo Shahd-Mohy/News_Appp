@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:news_appp/widgets/category_listView.dart';
 import 'package:news_appp/widgets/news_listView.dart';
@@ -34,7 +35,7 @@ class HomeView extends StatelessWidget {
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
-                child: CategoryListview(),
+                child: FadeInRightBig(child: CategoryListview()),
               ),
               SliverToBoxAdapter(
                 child: SizedBox(
@@ -42,6 +43,7 @@ class HomeView extends StatelessWidget {
                 ),
               ),
               NewsListViewBuilder(category: "general",)
+              
               
             ],
           ),
